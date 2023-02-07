@@ -58,9 +58,6 @@ def seed_everything(seed=28):
     torch.backends.cudnn.deterministic = True
 
 def preprocess(data):
-    '''
-    Credit goes to https://www.kaggle.com/gpreda/jigsaw-fast-compact-solution
-    '''
     punct = "/-'?!.,#$%\'()*+-/:;<=>@[\\]^_`{|}~`" + '""“”’' + '∞θ÷α•à−β∅³π‘₹´°£€\×™√²—–&'
     def clean_special_chars(text, punct):
         for p in punct:
@@ -70,7 +67,6 @@ def preprocess(data):
     data = clean_special_chars(data, punct)
     return data
         
-
 
 # Dataset
 
