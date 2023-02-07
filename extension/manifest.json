@@ -1,0 +1,48 @@
+{
+    "background": {
+      "service_worker": "background.js"
+    },
+  
+    "action": {
+      "default_icon": {
+        "16": "images/detox16.png",
+        "48": "images/detox48.png"
+      },
+
+      "default_title": "Home",
+      "default_popup": "home.html"
+    },
+    
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js", "popup.js"]
+      }
+    ],
+  
+    "default_locale": "en",
+  
+    "description": "Blank out toxic, harmful, and trollsome text from the Internet.",
+  
+    "icons": {
+      "48": "images/detox48.png",
+      "128": "images/detox128.png"
+    },
+  
+    "manifest_version": 3,
+  
+    "name": "Detoxify",
+  
+    "permissions": ["storage", "tabs", "http://dipadrian.pythonanywhere.com/"],
+
+    "host_permissions": [
+      "http://dipadrian.pythonanywhere.com/"
+    ],
+  
+    "version": "0.1",
+  
+    "user_scripts": {
+      "api_script": "apiscript.js"
+    }
+  
+  }

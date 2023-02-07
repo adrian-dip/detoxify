@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    
+    <style type="text/css">
+        body {
+            margin: 15px;
+            margin-bottom: 25px;
+            overflow: auto;
+        }
+        h1 {
+            font-weight: 500;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: 250;
+            margin:1px;
+            font-size: 10px;
+            text-align: left;
+        }
+
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 45px;
+        height: 28px;
+        }
+
+        .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #B0dc4d;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #B0dc4d;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(18px);
+        -ms-transform: translateX(18px);
+        transform: translateX(18px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
+        }
+
+        .leftbox {
+                float:left; 
+                width:60%;
+                height:40px;
+                font-size: 15px;
+                box-sizing: border-box;
+                align-items: center;
+                top: 50%;
+                left: 50%;
+
+            }
+
+        .rightbox{
+            float:right;
+            width:20%;
+            height:40px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+
+        .boxes {
+            margin-top: 30px;
+            box-sizing: border-box;
+        }
+
+        .explanation {
+            font-size: 15px;
+            font-weight: 400;}
+
+        .slidecontainerb {
+            width: 100%;
+            }
+
+        .sliderb {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;  
+            background: #ccc;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            }
+
+        .sliderb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%; 
+            background: #B0dc4d;
+            cursor: pointer;
+            }
+
+        .sliderb::-moz-range-thumb {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #B0dc4d;
+            cursor: pointer;
+            }
+
+        .containerc {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 15px;
+            }
+
+        .containerc .block {
+            padding: 4px;
+            }
+
+    </style>
+
+    <body>
+        <h1>
+            <img src="images/banner.png" alt="icon" width="320px" height="auto">
+            <hr style="width:50%; opacity: 50%;">
+            <p class="explanation">AI monitor against severe toxicity</p>
+            <p><span id="website"></span></p>
+            <p class="explanation">Filtered since install:  <span id="total_filtered" style="font-weight: 500"></span></p>
+
+        </h1>
+        <h2>
+            <div class = "boxes">
+                <div class = "leftbox">
+                    <p>On/Off</p>
+                </div>
+                <div class = "rightbox">
+                    <label class="switch">
+                        <input type="checkbox" id="masterSwitch">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <br>
+                <div class = "boxes">
+                    <div class = "leftbox">
+                        <p>Disable on this site</p>
+                    </div>
+                    <div class = "rightbox">
+                        <label class="switch">
+                            <input type="checkbox" id="urlSwitch">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+
+            <div class="slidecontainerb">
+                        <p class="explanation">Select filter strength:</p>
+                        <input type="range" min="1" max="5" class="sliderb" id="range">
+            </div>  
+
+            <div class="containerc">
+                <p class="block">Low</p>
+                <p class="block">|</p>
+                <p class="block">Moderate</p>
+                <p class="block">|</p>
+                <p class="block">Strict </p>
+            </div>
+            <div>
+                <a href="">
+                    <p style="text-align: center;">
+                        How does this work?
+                    </p>
+                </a>
+            </div>
+        </h2>
+
+    </body>
+
+    <script type="text/javascript" src="popup.js"></script>
+
+</html>
