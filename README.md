@@ -32,6 +32,6 @@ If compute is not an issue, a transformer will deliver much better results than 
 
 #### Methodological issues
 
-The core Jigsaw dataset has been criticized for using the average score of a pool of data labelers to determine whether a comment is toxic or not. This means that if we set the threshold at 0.5, 24 out of 50 people could think a comment is highly inappropriate and still mark it as appropriate. Conversely, if we set the threshold at 0.3, 7 people out of 10 could mark something as acceptable, but we would label it as highly toxic. As we all know, the mode and average are not accurate indicators of multi-rater labels of complex concepts like high-order semantics.
+The core Jigsaw dataset has been criticized for using the average score of a pool of data labelers to determine whether a comment is toxic or not. This means that if we set the threshold at 0.5, 24 out of 50 people could think a comment is highly inappropriate, and we'd still mark it as appropriate. Conversely, if we set the threshold at 0.3, 7 people out of 10 could mark something as acceptable, but we would label it as highly toxic. As we all know, the mode and average are not accurate indicators of multi-rater labels of complex concepts like high-order semantics.
 
 However, it must be noted that as we increase the threshold, transformers have a much easier time separating the two classes, which points to a correlation between the number of people who find something offensive and the actual offensiveness of a comment. 
