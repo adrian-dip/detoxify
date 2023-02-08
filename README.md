@@ -20,7 +20,7 @@ You can replicate the files by running the code here or download them from the f
 
 The core dataset is the toxic comments database by Google's Jigsaw team augmented via highly negative and highly positive Reddit comments. Comments with a score of -7 or lower and +75 or higher were selected for pseudolabeling. `deberta-small` was pretrained on the Jigsaw dataset (97% precision, 94% recall [weighted average]), and the Reddit comments were then labeled. 
 
-Comments identified as toxic in the negative dataset and comments identified as non-toxic in the positive dataset were used to augment the training database. The rationale was that comments in the -7 dataset were more likely to be toxic, which was confirmed by a 33% positivity rate vs. 7% in the +75 dataset. This was an attempt to minimize the compounding error that comes with pseudolabeled examples. A short qualitative review confirmed that the model was working as intended.
+Comments identified as toxic in the -7 dataset and comments identified as non-toxic in the +75 dataset were used to augment the database. The rationale was that comments in the -7 dataset were more likely to be toxic, which was confirmed by a 33% positivity rate vs. 7% in the +75 dataset. This was an attempt to minimize the compounding error that comes with pseudolabeled examples. A short qualitative review confirmed that the model was working as intended.
 
 The dataset was augmented to avoid overfitting to the original, which contains only Wikipedia discussion pages. Around 5 GB of additional data from over 175 subreddits was included in the final training.
 
