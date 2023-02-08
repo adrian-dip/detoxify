@@ -1,13 +1,47 @@
-
-from os import listdir
 import os
+from os import listdir
 import json
 import glob
 import pandas as pd
 import subprocess
+from bs4 import BeautifulSoup
+from urllib.request import Request, urlopen
+import re
 
-link_df = pd.read_csv('link_df.csv')
+req = Request("https://zissou.infosci.cornell.edu/convokit/datasets/subreddit-corpus/corpus-zipped/")
+html_page = urlopen(req)
 
+soup = BeautifulSoup(html_page, "lxml")
+text = []
+links = []
+for link in soup.findAll('a'):
+    if link.get('href') != '../':
+      links.append(link.get('href'))
+      text.append(link.next_sibling)
+      
+full_links = []
+texts = []
+
+for parent in links:
+  example = "https://zissou.infosci.cornell.edu/convokit/datasets/subreddit-corpus/corpus-zipped/" + parent
+  req = Request(example)
+  html_page = urlopen(req)
+  soup = BeautifulSoup(html_page, "lxml")
+
+  for link in soup.findAll('a'):
+    if link.get('href') != '../':
+      full_links.append(example + link.get('href'))
+      texts.append(link.next_sibling)     
+  
+sizes = []
+for el in texts:
+  el = el[:-2]
+  sizes.append(int(re.findall('[0-9]+', el)[-1]))     
+  
+link_df = pd.DataFrame(list(zip(full_links, sizes)), columns=['Link', 'Size'])
+link_df.sort_values(by=['Size'], ascending=False, inplace=True)
+link_df.reset_index(inplace=True, drop=True)      
+      
 for i in range(1, 250, 1):
   data_link = link_df.loc[i]['Link']
   print(data_link)
