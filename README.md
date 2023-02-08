@@ -8,7 +8,7 @@ The models consume 10 seconds of 2.2 Ghz CPU time (one thread) for every 5 hours
 
 #### Requirements
 
-The models can be incorporated into any Python pipeline. You only need to follow the steps provided in the Flask example in the cloud folder. They are:
+The models can be incorporated into any Python pipeline. You only need to follow the steps provided in the Flask example, `flask_server.py`. They are:
 
 1) Tokenizing and stemming the sentence 
 2) Preloading the pretrained vectorizer and vectorizing the data
